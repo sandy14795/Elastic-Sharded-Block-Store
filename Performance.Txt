@@ -1,0 +1,16 @@
+Case
+1. Unalligned Write vs Alligned Write
+2. Unalligned Read vs Alligned Read
+
+In Both of these case you have to run Single client and Multi client with Different Addr
+:- The Reason for this evalutation is to find the maximum Bandwidth in Both the Cases
+
+Case 
+1. Replicated Write vs Replicated Write
+2. Replicated Read vs Replicated Read
+
+In Both of these case you have to run Single client and Multi client with Different Addr
+
+Case: Worst Senerio Same Addr Multi Client
+Muliple client Avg write performance vs Single client write performance 
+Same addr (I have written both of these cases check MultiConsistancy.cc and Consistancy.cc : Just need to collect time)

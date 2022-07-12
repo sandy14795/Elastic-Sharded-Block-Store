@@ -1,0 +1,68 @@
+syntax = "proto3";
+
+service Hafs
+{
+    rpc HeartBeat(Request) returns (HeartBeatResponse) {}
+    rpc Read(ReadRequest) returns (ReadResponse) {}
+    rpc Write(WriteRequest) returns (Response) {}
+    rpc ReplicateBlock(WriteRequest) returns (Response) {}
+    rpc CommitBlock(WriteRequest) returns (Response) {}
+    rpc CheckConsistancy(ReadRequest) returns (Response) {}
+}
+message Request
+{
+
+}
+message HeartBeatResponse
+{
+    enum Status {
+        VALID     = 0;
+        INVALID   = 1;
+    }
+    enum Role {
+        PRIMARY   = 0;
+        BACKUP    = 1;
+    } 
+    enum Health {
+        HEALTHY                = 0;
+        REINTEGRATION_BEHIND   = 1;
+        REINTEGRATION_AHEAD    = 2;
+        SINGLE_REPLICA_AHEAD   = 3;
+        UNHEALTHY              = 4;
+    }
+    Role role      = 1;
+    Status status  = 2;
+    Health health  = 3;
+    int32 blockload = 4;
+
+}
+
+message Response
+{
+    enum Status {
+        VALID     = 0;
+        INVALID   = 1;
+    }
+    Status status = 1;   
+}
+
+message ReadRequest
+{
+    int32 address = 1;
+} 
+
+message ReadResponse
+{
+    enum Status {
+        VALID     = 0;
+        INVALID   = 1;
+    }
+    Status status = 1;
+    string data   = 2;
+}
+
+message WriteRequest
+{
+    int32 address = 1;
+    string data   = 2;
+}

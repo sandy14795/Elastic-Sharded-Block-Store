@@ -1,0 +1,3 @@
+./server --SAddr=128.105.144.230:8094 --path=/users/avkumar/Test --role=b --MAddr=128.105.144.230:8093
+
+./server --SAddr=128.105.144.230:8093 --path=/users/avkumar/Test --role=p --MAddr=128.105.144.230:8094
